@@ -37,10 +37,19 @@ namespace Radio
 
         public List<string> Errors { get; set; }
 
-        public void LoadAllStations()
+        public Dictionary<string, Station[]> LoadAllStations()
         {
-            _stationDictionary.Add("Default", GetDefaultStations());
-            _stationDictionary = DictionaryUtils.Merge(_stationDictionary, GetUserStations());
+            if ( AbleToLoad )
+            {
+                _stationDictionary = new Dictionary<string, Station[]>
+                {
+                    { "Default", GetDefaultStations() }
+                };
+                _stationDictionary = DictionaryUtils.Merge(_stationDictionary, GetUserStations());
+
+                return _stationDictionary;
+            }
+            return null;
         }
 
         public Station[] GetDefaultStations()
