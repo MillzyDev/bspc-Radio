@@ -1,11 +1,11 @@
 {
   "Classical WETA": "https://playerservices.streamtheworld.com/api/livestream-redirect/WETAFM.mp3?nocache=WBlVUpoY",
   "DrumAndBassFM": "https://stream.laut.fm/drumandbass_fm",
-  "GalNET Hard - Elite Dangerous Fan Radio": "https://galnet.ru/soft.mp3",
-  "GalNET Soft - Elite Dangerous Fan Radio": "https://galnet.ru/soft.mp3",
+  "GalNET Hard": "https://galnet.ru/hard.mp3",
+  "GalNET Soft": "https://galnet.ru/soft.mp3",
   "Nightwave Plaza": "https://radio.plaza.one/mp3",
   "NonStopPlay": "http://stream.nonstopplay.co.uk/nsp-192k-mp3",
   "TrapFM": "https://stream.laut.fm/trap",
-  "TruckersFM": "https://radio.truckers.fm",
+  "TruckersFM": "http://radio.truckers.fm",
   "WCCK DeadFM": "https://wcckdeadfm.com/music"
 }
