@@ -39,11 +39,11 @@ namespace Radio
 
         public void LoadAllStations()
         {
-            _stationDictionary.Add("Default", LoadDefaultStations());
-            _stationDictionary = DictionaryUtils.Merge(_stationDictionary, LoadUserStations());
+            _stationDictionary.Add("Default", GetDefaultStations());
+            _stationDictionary = DictionaryUtils.Merge(_stationDictionary, GetUserStations());
         }
 
-        public Station[] LoadDefaultStations()
+        public Station[] GetDefaultStations()
         {
             string file = AssemblyUtils.ReadResourceAsString("Radio.Resources.stations.json");
             JObject parsed = JObject.Parse(file);
@@ -61,13 +61,25 @@ namespace Radio
                     continue;
                 }
 
-
                 stations.Add(new Station(name, url));
             }
+
+            return stations.ToArray();
         }
 
-        public Dictionary<string, Station[]> LoadUserStations()
+        public Dictionary<string, Station[]> GetUserStations()
         {
+            string[] files = Directory.GetFiles(UserStationDir, "*.json");
+
+            /* -- EXAMPLE USER STATION LIST --
+             * {
+             *  "name": "Cool Stations",
+             *  "stations": {
+             *      "TruckersFM": "url goes here",
+             *   }
+             * }
+             */ 
+
 
         }
     }
