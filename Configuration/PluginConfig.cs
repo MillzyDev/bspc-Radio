@@ -7,7 +7,7 @@ namespace Radio.Configuration
 {
     public class PluginConfig
     {
-        public virtual bool UseUserDefined { get; set; } = false;
+        public virtual string SelectedList { get; set; } = null;
         public virtual string SelectedStation { get; set; } = null;
         public virtual bool Enabled { get; set; } = false;
         public virtual float Volume { get; set; }
