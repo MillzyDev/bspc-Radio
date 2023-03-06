@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Radio.Managers
 {
-    public class SetupManager : IInitializable, IDisposable
+    public class SetupManager : IInitializable
     {
         [Inject]
         private StationLoader stationLoader;
@@ -19,11 +19,6 @@ namespace Radio.Managers
                 stationLoader.AbleToLoad = false;
                 stationLoader.Errors.Add("No internet connection");
             }
-        }
-
-        public void Dispose()
-        {
-
         }
     }
 }
