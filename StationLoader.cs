@@ -78,9 +78,37 @@ namespace Radio
              *      "TruckersFM": "url goes here",
              *   }
              * }
-             */ 
+             */
 
+            Dictionary<string, Station[]> userStations = new Dictionary<string, Station[]>();
 
+            foreach (var file in files)
+            {
+                JObject parsed = JObject.Parse(File.ReadAllText(file));
+
+                List<Station> stations = new List<Station>();
+
+                string listName = parsed["name"].ToString();
+                JObject stationList = (JObject)parsed["stations"];
+
+                foreach (var pair in stationList)
+                {
+                    string name = pair.Key;
+                    string url = pair.Value.ToString();
+
+                    if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+                    {
+                        logger.Error($"Unable to load station {name} - Value is not a valid URL");
+                        continue;
+                    }
+
+                    stations.Add(new Station(name, url));
+                }
+
+                userStations.Add(listName, stations.ToArray());
+            }
+
+            return userStations;
         }
     }
 }
