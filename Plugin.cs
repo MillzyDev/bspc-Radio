@@ -6,6 +6,7 @@ using Radio.Installers;
 
 using IPALogger = IPA.Logging.Logger;
 using Conf = IPA.Config.Config;
+using Radio.Managers;
 
 namespace Radio
 {
@@ -24,7 +25,9 @@ namespace Radio
             {
                 Container.Bind<PluginConfig>().FromInstance(config).AsSingle();
                 Container.Bind<Plugin>().FromInstance(this).AsSingle();
+                Container.BindInterfacesAndSelfTo<SetupManager>().AsSingle();
             });
+
             zenjector.Install<MenuInstaller>(Location.Menu);
         }
     }
