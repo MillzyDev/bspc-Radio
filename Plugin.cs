@@ -25,6 +25,7 @@ namespace Radio
             {
                 Container.Bind<PluginConfig>().FromInstance(config).AsSingle();
                 Container.Bind<Plugin>().FromInstance(this).AsSingle();
+                Container.Bind<StationLoader>().AsSingle();
                 Container.BindInterfacesAndSelfTo<SetupManager>().AsSingle();
             });
 
