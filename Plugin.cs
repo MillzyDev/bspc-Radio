@@ -29,7 +29,7 @@ namespace Radio
                 Container.BindInterfacesAndSelfTo<SetupManager>().AsSingle();
             });
 
-            zenjector.Install<MenuInstaller>(Location.Menu);
+            zenjector.Install<RUIInstaller>(Location.Menu);
         }
     }
 }
